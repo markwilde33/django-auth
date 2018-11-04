@@ -23,6 +23,7 @@ def login(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You've done it mate, you're in")
+                return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
     else:
